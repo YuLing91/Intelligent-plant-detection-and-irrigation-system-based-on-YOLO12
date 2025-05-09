@@ -1,0 +1,1 @@
+# Intelligent-plant-detection-and-irrigation-system-based-on-YOLO12
