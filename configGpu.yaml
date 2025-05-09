@@ -1,0 +1,29 @@
+#path
+dataPath: 'Leaf_VOC_Full_Data'
+classesPath: 'model_data/leaf_classes.txt'
+train_annotation_path: '2007_train.txt'
+val_annotation_path: '2007_val.txt'
+
+#train
+device: 'gpu'
+training_epochs: 8
+batch_size: 20
+num_workers: 0
+#model
+    #------------------------------------------------------------------------#
+    #   anchors_size用于设定先验框的大小，每个特征点均存在9个先验框。
+    #   anchors_size每个数对应3个先验框。
+    #   当anchors_size = [8, 16, 32]的时候，生成的先验框宽高约为：
+    #   [90, 180] ; [180, 360]; [360, 720]; [128, 128];
+    #   [256, 256]; [512, 512]; [180, 90] ; [360, 180];
+    #   [720, 360]; 详情查看anchors.py
+    #   如果想要检测小物体，可以减小anchors_size靠前的数。
+    #   比如设置anchors_size = [4, 16, 32]
+    #------------------------------------------------------------------------#
+input_shape: [600, 600]
+anchors_size: [8, 16, 32]
+backbone: "resnet50"
+pretrained : True
+model_path: ""
+# Opt
+lr: 1e-4
